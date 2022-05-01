@@ -1,5 +1,6 @@
 
 const path = require('path');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const { MODE } = process.env;
@@ -12,7 +13,7 @@ const pluginsConfig = require('./webpack_config/plugins.config');
 
 module.exports = {
     mode: MODE,
-    devtool: IsDevelopment ? 'source-map' : 'cheap-module-source-map',
+    devtool: IsDevelopment ? 'source-map' : 'cheap-source-map',
     entry: {
         index: './src/index.tsx',
     },  // 入口文件,多入口配置
@@ -59,12 +60,24 @@ module.exports = {
         hints: false
     },
     optimization: {
+        minimize: !IsDevelopment,
         minimizer: [
             new TerserPlugin({
                 parallel: true,
+                extractComments: false,  // 使用这个插件主要是删除build文件夹中的一个注释文件
+                terserOptions: IsDevelopment ? {} : {
+                    output: {
+                        comments: false,  // 打包时去掉注释
+                    },
+                    compress: {
+                        arguments: false,
+                        dead_code: true,
+                        pure_funcs: ['console.log']  // 打包时清除掉无用的console.log
+                    },
+                },
             }),
             // new OptimizeCssAssetsPlugin(),
-            new CssMinimizerPlugin()
+            new CssMinimizerPlugin({})
         ],
         splitChunks: {
             chunks: 'all',

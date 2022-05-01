@@ -14,11 +14,7 @@ const root = createRoot(container);
 declare var module: any;
 if (module.hot) {
     console.log('热更新');
-    module.hot.accept(() => {
-        root.render(
-            <Routers />
-        );
-    })
+    module.hot.accept()
 }
 root.render(
     <Provider store={store}>
