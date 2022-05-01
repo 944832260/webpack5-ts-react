@@ -1,5 +1,6 @@
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path');
 //依赖
 const moduleConfigDev = {
     // noParse:/jquery/,//不去解析jquery中的依赖关系，知道这个包没有依赖项，可以使用noParse来忽略掉

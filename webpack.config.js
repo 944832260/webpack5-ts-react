@@ -1,6 +1,6 @@
 
 const path = require('path');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const { MODE } = process.env;
 //development是true,不是开发false
@@ -52,10 +52,7 @@ module.exports = {
                 // pathRewrite: item.isDevelop ? { '^/tower-logistic': '' } : null,//请求时替换掉api
             }
         )),
-        // contentBase: path.join(__dirname, 'build'), 
         compress: true,
-        // disableHostCheck: IsDevelopment ? true : false,
-        // hot: true,
         historyApiFallback: true,
     },
     performance: {
@@ -66,7 +63,8 @@ module.exports = {
             new TerserPlugin({
                 parallel: true,
             }),
-            new OptimizeCssAssetsPlugin(),
+            // new OptimizeCssAssetsPlugin(),
+            new CssMinimizerPlugin()
         ],
         splitChunks: {
             chunks: 'all',
