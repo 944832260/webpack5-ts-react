@@ -1,5 +1,5 @@
 $vm_base: 750; //设计图尺寸
 
 @function vm($px) {
-    @return ($px / 750) * 100vw;
+    @return ($px / $vm_base) * 100vw;
 }

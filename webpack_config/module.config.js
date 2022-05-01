@@ -69,7 +69,13 @@ const moduleConfigDev = {
                     options: {
                         sourceMap: true,
                     }
-                }
+                },
+                {
+                    loader: 'sass-resources-loader',
+                    options: {
+                        resources: [path.resolve(__dirname, '../src/public/css/func.scss'),],
+                    },
+                },
             ],
         }, {
             test: /\.(png|jpg|jpeg|gif|svg|pdf)$/,
@@ -145,6 +151,12 @@ const moduleConfigProd = {
                 'css-loader',
                 'postcss-loader',
                 'sass-loader',
+                {
+                    loader: 'sass-resources-loader',
+                    options: {
+                        resources: [path.resolve(__dirname, '../src/public/css/func.scss'),],
+                    },
+                },
             ],
         }, {
             test: /\.(png|jpg|jpeg|gif|svg|pdf)$/,
