@@ -1,0 +1,36 @@
+.public_block_page {
+    .public_block_box {
+        margin-bottom: 10px;
+
+        h3 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .public_block_box_info {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+
+
+            .public_block_box_info_item {
+                width: 32%;
+                margin-right: 2%;
+                margin-bottom: 10px;
+
+                &:nth-child(3n) {
+                    margin-right: 0;
+                }
+
+                .public_block_box_info_item_tip {
+                    margin-bottom: 4px;
+                }
+
+                .input {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

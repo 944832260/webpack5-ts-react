@@ -1,0 +1,212 @@
+.public_page {
+    width: 100%;
+    min-height: 100%;
+    background-color: #ffffff;
+
+    // 功能区
+    .search_content {
+        width: 100%;
+        // background-color: #ffffff;
+        padding: 10px 20px;
+
+        .search_item {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 0 0 0 10px;
+            // height: 32px;
+            line-height: 32px;
+            margin: 10px 0;
+
+
+            &:nth-last-child(1) {
+                margin-bottom: 0;
+            }
+
+            .tip {
+                width: 86px;
+                text-align: right;
+                margin-right: 2px;
+                font-size: 14px;
+            }
+
+            .input {
+                border-radius: 2px;
+                flex: 1
+            }
+
+            .input_wrap {
+                border-radius: 2px;
+                flex: 1;
+                display: flex;
+                justify-content: space-between;
+
+                .input_within {
+                    width: 48%;
+                }
+            }
+        }
+
+        .search_item_none {
+            display: none;
+        }
+
+        .search_btn_box {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+
+            .btn_item {
+                margin-left: 12px;
+            }
+
+            .btn_open {
+                margin-left: 10px;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                color: #1890ff;
+                cursor: pointer;
+
+                .active_open {
+                    transform: rotate(0deg);
+                    transition: 1s;
+                }
+
+                .active_shrink {
+                    transform: rotate(180deg);
+                    transition: 1s;
+                }
+            }
+        }
+    }
+
+    .public_line {
+        height: 10px;
+        width: 100%;
+        background-color: #F0F2F5;
+    }
+
+    .public_content {
+        background-color: #ffffff;
+        padding: 20px;
+        height: calc(100% - 92px);
+
+        .func_box {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .func {
+            width: 100%;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+            background-color: #ffffff;
+
+            .func_item {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                margin-right: 20px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    // 统计区
+    .statistics {
+        height: 30px;
+        background-color: #E6F7FF;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+        margin-bottom: 20px;
+        span{
+            color: #1890ff;
+            margin: 0 10px;
+        }
+        .btn{
+            cursor: pointer;
+        }
+    }
+
+    .func_between {
+        width: 100%;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+
+        .func_left {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+
+            .func_item {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                margin-right: 20px;
+                margin-bottom: 10px;
+            }
+        }
+
+        .func_right {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            flex-wrap: wrap;
+
+            .func_item {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                // margin-left: 30px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    .page {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+}
+
+.public_table {
+    .ant-table-cell {
+        .operation {
+            span {
+                color: #1890ff;
+                cursor: pointer;
+                margin: 0 5px;
+
+                &:hover {
+                    color: #49a7ff;
+                }
+
+                .print {
+                    color: red;
+                }
+            }
+        }
+    }
+}
+
+// 禁止table表格内容换行
+.ant-table-thead>tr>th {
+    white-space: nowrap;
+}
+
+.ant-table-row td {
+    white-space: nowrap;
+}

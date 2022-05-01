@@ -1,0 +1,158 @@
+#components-layout-demo-responsive .logo {
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
+}
+
+#Layouts {
+    height: 100vh;
+
+    .layouDD {
+        height: 100%;
+
+        .meun-children {
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-icon {
+            // width: 14px;
+            // height: 14px;
+            margin-right: 10px;
+        }
+
+        .logo {
+            color: #ffffff;
+            height: 64px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+        }
+
+        .menus {
+            height: calc(100% - 64px);
+            overflow-y: auto;
+
+            &::-webkit-scrollbar {
+                /*滚动条整体样式*/
+                width: 4px;
+                /*高宽分别对应横竖滚动条的尺寸*/
+                height: 1px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                /*滚动条里面小方块*/
+                border-radius: 4px;
+                -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+                box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+                background: #535353;
+            }
+
+            &::-webkit-scrollbar-track {
+                /*滚动条里面轨道*/
+                -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+                box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+                border-radius: 4px;
+                background: #EDEDED;
+            }
+        }
+
+        .layoutCD {
+            .header {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                box-shadow: 3px 3px 10px rgba(204, 204, 204, 0.3);
+
+                .header_d {
+                    height: 100%;
+                    width: 100%;
+                    position: relative;
+
+                    .userInfo {
+                        position: absolute;
+                        right: 100px;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+
+                        .signout {
+                            width: 28px;
+                            height: 28px;
+                            cursor: pointer;
+                            margin-left: 20px;
+                        }
+
+                        .topIcon {
+                            cursor: pointer;
+                            font-size: 28px;
+                            color: #cdcdcd;
+                            margin-left: 18px;
+                            position: relative;
+                        }
+                    }
+                }
+            }
+
+            .layoutContent {
+                padding: 20px 20px 0 20px;
+                margin-bottom: 30px;
+                overflow: auto;
+
+                .contentMain {
+                    padding: 24px;
+                    margin: 24px 16px;
+                    background-color: #ffffff;
+                    display: flex;
+                    flex: 1;
+                    overflow: auto;
+                }
+
+                .copyright {
+                    position: fixed;
+                    background-color: #f5f5f5;
+                    bottom: 0px;
+                    left: 200px;
+                    height: 30px;
+                    width: calc(100% - 200px);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: #999999;
+                    font-size: 14px;
+
+                    .icon-copyright {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+
+    .system {
+        position: fixed;
+        top: 64px;
+        right: 57px;
+        width: 120px;
+        padding: 5px;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px #ccc;
+        z-index: 100;
+        ul {
+            li {
+                padding: 5px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #f6f6f6;
+                }
+
+                i {
+                    margin-right: 10px;
+                }
+
+            }
+        }
+    }
+}

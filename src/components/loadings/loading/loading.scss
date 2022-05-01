@@ -1,0 +1,68 @@
+#loadingLG {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.12);
+    z-index: 9999;
+
+    span {
+        display: inline-block;
+        position: relative;
+        width: 40px;
+        height: 40px;
+        animation: myrotate 1.8s infinite linear;
+        margin-top: 10px;
+
+        i {
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            transform: scale(0.75);
+            border-radius: 100%;
+            background: cornflowerblue;
+            opacity: 0.3;
+            display: block;
+            animation: myopacity 1s infinite linear;
+
+            &:nth-child(1) {
+                left: 0;
+                top: 0;
+            }
+
+            &:nth-child(2) {
+                right: 0;
+                top: 0;
+                animation-delay: 0.4s;
+            }
+
+            &:nth-child(3) {
+                right: 0;
+                bottom: 0;
+                animation-delay: 0.8s;
+            }
+
+            &:nth-child(4) {
+                left: 0;
+                bottom: 0;
+                animation-delay: 1.2s;
+            }
+        }
+    }
+
+    @keyframes myrotate {
+        to {
+            transform: rotate(450deg);
+        }
+    }
+
+    @keyframes myopacity {
+        to {
+            opacity: 1;
+        }
+    }
+}
