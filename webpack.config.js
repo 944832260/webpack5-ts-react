@@ -1,6 +1,6 @@
 
 const path = require('path');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+// const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const { MODE } = process.env;
