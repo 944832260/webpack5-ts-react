@@ -81,23 +81,22 @@ const moduleConfigDev = {
         }, {
             test: /\.(png|jpg|jpeg|gif|svg|pdf)$/,
             exclude: /node_modules/,
+            type: 'asset',
+            generator: {
+                filename: 'image/[name].[contenthash:8][ext]'
+            },
             // 做一个限制，当我们的图片小于多少K的时候用base64来转化 limit：50*1024
             // 否则用file-loader产生真实的图片
-            use: [
-                {
-                    loader: 'url-loader',
-                    options: {
-                        esModule: false,//file-loader在5.0版本更新中默认为了true，所以显示 [object Module]
-                        limit: 0,
-                        name: 'image/[name].[contenthash:8].[ext]'
-                    }
+            parser: {
+                dataUrlCondition: {
+                    maxSize: 50 * 1024,
                 }
-            ]
+            }
         }, {
             test: /\.(woff|svg|ttf|eot|woff2)(\?.*)?$/,
-            type:'asset/resource',
-            generator:{
-                filename:'font/[name].[contenthash:8].[ext]'
+            type: 'asset/resource',
+            generator: {
+                filename: 'font/[name].[contenthash:8][ext]'
             }
         }
     ]
@@ -162,23 +161,22 @@ const moduleConfigProd = {
         }, {
             test: /\.(png|jpg|jpeg|gif|svg|pdf)$/,
             exclude: /node_modules/,
+            type: 'asset',
+            generator: {
+                filename: 'image/[name].[contenthash:8][ext]'
+            },
             // 做一个限制，当我们的图片小于多少K的时候用base64来转化 limit：50*1024
             // 否则用file-loader产生真实的图片
-            use: [
-                {
-                    loader: 'url-loader',
-                    options: {
-                        esModule: false,//file-loader在5.0版本更新中默认为了true，所以显示 [object Module]
-                        limit: 0,
-                        name: 'image/[name].[contenthash:8].[ext]'
-                    }
+            parser: {
+                dataUrlCondition: {
+                    maxSize: 50 * 1024,
                 }
-            ]
+            }
         }, {
             test: /\.(woff|svg|ttf|eot|woff2)(\?.*)?$/,
-            type:'asset/resource',
-            generator:{
-                filename:'font/[name].[contenthash:8].[ext]'
+            type: 'asset/resource',
+            generator: {
+                filename: 'font/[name].[contenthash:8][ext]'
             }
         }
     ]
