@@ -10,9 +10,12 @@ const moduleConfigDev = {
             exclude: /node_modules/,
             use: [
                 {
-                    loader: 'babel-loader',
+                    loader: 'esbuild-loader',
+                    // loader: 'babel-loader',
                     options: {
-                        cacheDirectory: true
+                        // cacheDirectory: true,
+                        loader: 'tsx',
+                        target: 'es2015',
                     }
                 }
             ],
@@ -109,7 +112,16 @@ const moduleConfigProd = {
             test: /\.(js|jsx|ts|tsx)$/,
             exclude: /node_modules/,
             // use:'Happypack/loader?id=js',
-            loader: 'babel-loader',
+            // loader: 'babel-loader',
+            use: [
+                {
+                    loader: 'esbuild-loader',
+                    options: {
+                        loader: 'tsx',
+                        target: 'es2015',
+                    }
+                }
+            ],
         },
         {
             enforce: 'pre',

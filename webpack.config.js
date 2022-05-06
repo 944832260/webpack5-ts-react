@@ -10,6 +10,7 @@ console.log(MODE, 'MODE------>');
 const Config = require('./webpack_config/dev.config');
 const moduleConfig = require('./webpack_config/module.config');
 const pluginsConfig = require('./webpack_config/plugins.config');
+const { ESBuildMinifyPlugin } = require('esbuild-loader');
 
 module.exports = {
     mode: MODE,
@@ -77,7 +78,12 @@ module.exports = {
                 },
             }),
             // new OptimizeCssAssetsPlugin(),
-            new CssMinimizerPlugin({})
+            new CssMinimizerPlugin(),
+            new ESBuildMinifyPlugin({
+                target: 'es2015',
+                minifyWhitespace: true,
+                sourcemap: IsDevelopment,
+            }),
         ],
         splitChunks: {
             chunks: 'all',
